@@ -1,28 +1,35 @@
-import axios from 'axios';
-import React from 'react';
-// get
-axios
-  .get('https://jsonplaceholder.typicode.com/users')
-  .then(data => console.log(data.data))
-  .catch(err => console.error(err));
-// post
-axios
-.post('http://jsonplaceholder.typicode.com/posts',{
-  title:"pumpkins",
-  body:"salom",
-  userId:1
-})
-.then(res=>console.log(res.data))
-.catch(err => console.error(err));
-
+import axios from "axios"
 
 
 const App = () => {
-  return (
-    <div>
+    // GET request
+    axios
+      .get('https://jsonplaceholder.typicode.com/users')
+      .then(data => console.log(data.data))
+      .catch(err => console.error(err));
 
-    </div>
-  );
-}
+    // POST request
+    axios
+      .post('https://jsonplaceholder.typicode.com/posts', {
+        title: 'Pumpkins',
+        body: 'Salom',
+        userId: 1
+      })
+      .then(res => console.log(res.data))
+      .catch(err => console.error(err));
+    
+    //PUT request
+    axios
+    .put('https://jsonplaceholder.typicode.com/posts/9', {
+      title: 'Updated',
+      body: 'Salom',
+    })
+    .then(data =>console.log(data))
+    .catch(err => console.error(err));
 
-export default App;
+    // Delete request
+    axios
+    .delete('https://jsonplaceholder.typicode.com/posts/4')
+    .then(data => console.log(data,"O'chirildi"));
+  }
+export default App
